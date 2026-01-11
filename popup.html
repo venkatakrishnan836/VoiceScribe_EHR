@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+  <title>Live Label Extractor</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>Live Label Extractor</h2>
+      <div class="header-actions">
+        <button id="refreshBtn" class="icon-btn" title="Refresh Labels">
+          <span>🔄</span>
+        </button>
+        <button id="showDataBtn" class="icon-btn" title="Show Stored Data">
+          <span>📋</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="recording-section">
+      <div id="recordingStatus" class="recording-status">Click the microphone icon next to any field to record</div>
+
+      <div class="scribe-controls">
+        <button id="scribeToggleBtn" class="scribe-btn">
+          <span class="scribe-icon">🧠</span>
+          <span class="scribe-text">Start Ambient Scribe</span>
+        </button>
+        <p class="scribe-hint">Listens to conversation & fills all fields automatically</p>
+      </div>
+      <details class="tips-section">
+        <summary>💡 Tips for Better Accuracy</summary>
+        <ul class="tips-list">
+          <li>Speak <strong>clearly</strong> and at a <strong>moderate pace</strong></li>
+          <li>Use a <strong>quiet environment</strong></li>
+          <li>Stay close to the microphone (6-12 inches)</li>
+          <li>Say "at the rate" for @, "dot" for .</li>
+          <li>Recording auto-stops after 2 seconds of silence</li>
+        </ul>
+      </details>
+    </div>
+
+    <div id="transcriptBox" class="transcript-box hidden">
+      <div class="transcript-header">
+        <h4>Transcript</h4>
+        <span id="transcriptStatus" class="transcript-status">Interim</span>
+      </div>
+      <div class="transcript-content">
+        <p id="transcriptText" class="transcript-text"></p>
+        <div id="transcriptConfidence" class="transcript-confidence">Confidence: <span id="confidenceScore">0</span>%
+        </div>
+      </div>
+    </div>
+
+    <div id="labelList" class="label-list-container">
+      <ul class="label-list"></ul>
+    </div>
+
+    <div id="storedData" class="stored-data hidden">
+      <h3>Stored Label-Value Pairs:</h3>
+      <pre id="storedDataContent"></pre>
+    </div>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+
+</html>

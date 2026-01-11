@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Live Label Extractor",
+  "version": "1.0",
+  "description": "Extract and populate form labels using speech recognition and LLM processing",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_scripts/ui.js",
+        "content_scripts/form_analyzer.js",
+        "content_scripts/input_simulator.js",
+        "content_scripts/speech_engine.js",
+        "content_scripts/main.js"
+      ]
+    }
+  ]
+}
